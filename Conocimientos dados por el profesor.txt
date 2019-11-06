@@ -1,0 +1,17 @@
+Conociminetos dados por el profesor
+
+1- Java
+	-instalar net beans
+	-Variables
+	-Bucles
+	-Arrays
+	-Condicionales
+	-Operadores
+	-Ordenador de arrays
+	-Clases propias con metodos propios
+	-Testeo
+
+	-Programacion orientada a objetos
+	
+
+2- Git (control de versiones)

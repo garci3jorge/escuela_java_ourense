@@ -15,7 +15,7 @@ public class Main {
         //distintas llamadas a los metodos
         //mostrarTiposDatos();
         //condiciones();
-        ordenarArray();
+        //ordenarArray();
     }
 
     public static void mostrarTiposDatos() {
@@ -89,9 +89,7 @@ public class Main {
         //XOR (^)
     }
 
-    /**
-     * Esto es un ejecicio de ordenar un array
-     */
+    /**Esto es un ejecicio de ordenar un array*/
     public static int [] ordenarArray(int[] arrayNumerico) {
         //declarar array enteros
         //Programar todo lo que haga falta para ordenarlo
