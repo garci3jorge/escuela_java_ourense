@@ -5,6 +5,9 @@
  */
 package pkg01_introjava;
 
+import pkg02_intro_java_poo.Coche;
+import pkg02_intro_java_poo.FabricaCoches;
+
 /**
  *
  * @author PC
@@ -16,6 +19,7 @@ public class Main {
         //mostrarTiposDatos();
         //condiciones();
         //ordenarArray();
+       
     }
 
     public static void mostrarTiposDatos() {

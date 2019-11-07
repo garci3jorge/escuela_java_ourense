@@ -9,13 +9,57 @@ package pkg02_intro_java_poo;
  *
  * @author PC
  */
-public class Coche {
+public class Coche extends Vehiculo {
 
 //    public Coche(){
 //    Constructor por defecto
 //    }
-    private String marca;
+    String marca;
     private int numRuedas = 4;
+    protected boolean arrancado;
+
+    // en el momento en el que creamos un constructor el de por 
+    // defecto deja de ser implementado por java
+    public Coche() {
+        numRuedas = 4;
+        marca = "SIN MARCA";
+        tipo = TipoVehiculo.TURISMO;
+    }
+
+    public Coche(String marca) {
+        this.marca = marca;
+        this.arrancado = false;
+        tipo = TipoVehiculo.TURISMO;
+    }
+
+    public void arrancar() {
+        System.out.println(this.marca + " ha arrancado");
+        arrancado = true;
+    }
+
+    //sobrecarga de metodo arrancar
+    public void arrancar(int posicionLlave) {
+        arrancado = posicionLlave == 4;
+        System.out.println(this.marca + (arrancado ? " ha arrancado"
+                : " fallo al arrancar"));
+        //if posicionLlave==4 arrancado=true; else arrancado=false
+    }
+
+    public boolean arrancar(String orden) {
+        arrancado = "arracar".equals(orden);
+        return arrancado;
+//        if (orden.equals("arrancar")) {
+//            arrancado = true;
+//        } else {
+//            arrancado = false;
+//        }
+    }
+
+    public void mostrarEstado() {
+        System.out.println("Coche " + getMarca() + ", "
+                + (arrancado ? " ha arrancado"
+                        : " apagado"));
+    }
 
     public String getMarca() {
         return this.marca;
@@ -29,5 +73,25 @@ public class Coche {
          */
         this.marca = nuevaMarca;
     }
+
+    public int getNumRuedas() {
+        return numRuedas;
+    }
+
+    public boolean isArrancado() {
+        return arrancado;
+    }
+
+    @Override
+    public void avanzar() {
+        System.out.println("hola amigos");
+    }
+
+    @Override
+    public String toString() {
+        return "Coche{" + "marca=" + marca + ", numRuedas=" + numRuedas + ", arrancado=" + arrancado + '}';
+    }
+    
+    
 
 }

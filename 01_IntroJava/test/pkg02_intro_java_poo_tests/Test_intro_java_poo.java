@@ -10,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import pkg02_intro_java_poo.Coche;
+import pkg02_intro_java_poo.CocheRally;
 
 /**
  *
@@ -38,22 +39,37 @@ public class Test_intro_java_poo {
 
         miCocheFindes = miCoche;
         assertEquals(miCoche, miCocheFindes);
-        
+
         miCoche.setMarca("hummer limusina");
-        
+
         System.out.println("micocheFindes otro " + miCocheFindes.getMarca());
-        
-        
+
         //intro al polimorfismo
         Object refAmiCoche = miCoche;
-        Object refCoche= new Object();
+
         //no podemos acceder porque no tiene la forma de coche
         assertTrue(refAmiCoche.equals(miCoche));
         System.out.println(refAmiCoche.toString());
-        
+
         //asignar un nuevo objeto a coche
-        miCoche = (Coche)refCoche;
-        
-        
+//        Object refCoche = new Object();
+//        miCoche = (Coche) refCoche;
     }
+
+    @Test
+    public void testSobrecargaMetodos() {
+        Coche miOtroCoche = null;
+        miOtroCoche = new Coche();
+        miOtroCoche.arrancar();
+        assertTrue(miOtroCoche.isArrancado());
+
+        miOtroCoche.arrancar(1);
+        assertFalse(miOtroCoche.isArrancado());
+        miOtroCoche.arrancar(4);
+        assertTrue(miOtroCoche.isArrancado());
+
+    }
+    
+    
+
 }
