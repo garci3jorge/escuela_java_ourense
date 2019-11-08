@@ -14,6 +14,13 @@ Conociminetos dados por el profesor
 	-Programacion orientada a objetos
 	-Diagramas de clases UML
 	-Interfaces(es una clase abstracta que implementa metodos a otras clases)
-	
+	-Paso por referencia,
+	-ArrayList
+	-metodos genericos
+	-Clases genericas
+	-Tipos de coleciones
+	-hashmaps
+	-treeMap
+	-Listas,Mapas,Conjuntos
 
 2- Git (control de versiones)
