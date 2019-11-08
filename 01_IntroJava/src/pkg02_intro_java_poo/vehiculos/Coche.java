@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_intro_java_poo;
+package pkg02_intro_java_poo.vehiculos;
 
 /**
  *
@@ -92,6 +92,9 @@ public class Coche extends Vehiculo {
         return "Coche{" + "marca=" + marca + ", numRuedas=" + numRuedas + ", arrancado=" + arrancado + '}';
     }
     
-    
+    public void mover(float m){
+        avanzar();
+        System.out.println("metros "+m);
+    }
 
 }

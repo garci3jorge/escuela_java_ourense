@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_intro_java_poo;
+package pkg04_intro_java_poo.interfaces;
 
 /**
  *
  * @author PC
  */
-public enum TipoVehiculo {
-      TURISMO,
-      RALLY,
-      TRACTOR
-      
-      
+public interface Electrico {
+    
+    void cargarBateria(double voltios);
+    
 }

@@ -5,8 +5,8 @@
  */
 package pkg01_introjava;
 
-import pkg02_intro_java_poo.Coche;
-import pkg02_intro_java_poo.FabricaCoches;
+import pkg02_intro_java_poo.vehiculos.Coche;
+import pkg02_intro_java_poo.vehiculos.FabricaCoches;
 
 /**
  *

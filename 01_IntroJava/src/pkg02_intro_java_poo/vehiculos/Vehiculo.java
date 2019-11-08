@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_intro_java_poo;
+package pkg02_intro_java_poo.vehiculos;
+
+import pkg04_intro_java_poo.interfaces.Desplazable;
 
 
 
@@ -11,7 +13,7 @@ package pkg02_intro_java_poo;
  *
  * @author PC
  */
-public abstract class Vehiculo {
+public abstract class Vehiculo extends Object implements Desplazable{
     protected TipoVehiculo tipo;
 
     public TipoVehiculo getTipo() {

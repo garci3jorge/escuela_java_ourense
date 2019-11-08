@@ -3,27 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg02_intro_java_poo;
+package pkg02_intro_java_poo.vehiculos;
 
 /**
  *
  * @author PC
  */
 public class Tractor extends Vehiculo {
-    
 
-    protected boolean arrancado;
-    
+    //protected boolean arrancado;
     // el tractor no tiene marca y solo tiene tipo y si le quieres meter el arrancadpo pues es asi CREO!!!!
-    public void mostrarEstado() {
-        System.out.println("Coche " + getTipo()+ ", "
-                + (arrancado ? " ha arrancado"
-                        : " apagado"));
-    }
-    
+//    public void mostrarEstado() {
+//        System.out.println("Coche " + getTipo()+ ", "
+//                + (arrancado ? " ha arrancado"
+//                        : " apagado"));
+//    }
     public Tractor() {
         tipo = TipoVehiculo.TRACTOR;
-        this.arrancado= false;
+        //this.arrancado= false;
     }
 
     @Override
@@ -33,9 +30,12 @@ public class Tractor extends Vehiculo {
 
     @Override
     public String toString() {
-        return "Tractor{" + "arrancado=" + arrancado + '}';
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+    public void mover(float m) {
+        avanzar();
+        System.out.println("metros " + m);
+    }
 
 }

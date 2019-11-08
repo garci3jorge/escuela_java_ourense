@@ -9,11 +9,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import pkg02_intro_java_poo.Coche;
-import pkg02_intro_java_poo.CocheRally;
-import pkg02_intro_java_poo.TipoVehiculo;
-import pkg02_intro_java_poo.Tractor;
-import pkg02_intro_java_poo.Vehiculo;
+import pkg02_intro_java_poo.vehiculos.Coche;
+import pkg02_intro_java_poo.vehiculos.CocheRally;
+import pkg02_intro_java_poo.vehiculos.TipoVehiculo;
+import pkg02_intro_java_poo.vehiculos.Tractor;
+import pkg02_intro_java_poo.vehiculos.Vehiculo;
 
 /**
  *

@@ -12,6 +12,8 @@ Conociminetos dados por el profesor
 	-Testeo
 
 	-Programacion orientada a objetos
+	-Diagramas de clases UML
+	-Interfaces(es una clase abstracta que implementa metodos a otras clases)
 	
 
 2- Git (control de versiones)
