@@ -22,5 +22,8 @@ Conociminetos dados por el profesor
 	-hashmaps
 	-treeMap
 	-Listas,Mapas,Conjuntos
+	-Excepciones(Errores en tiempo de ejecucion)
+	-Pila de llamadas
+	-Patrones de diseño(POO, singleton, DAO, MVC, Factory, )
 
 2- Git (control de versiones)

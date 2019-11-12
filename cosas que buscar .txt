@@ -3,3 +3,5 @@ como java crea los objetos en memoria (new)
 tutiriales de diagramas de clases UML en java
 paso por referencia en java
 Listas, Mapas, Conjuntos
+Excepciones Try Catch
+patrones de diselo

@@ -14,6 +14,7 @@ public class CocheRally extends Coche {
     private float rozamiento;
 
     public CocheRally() {
+        
         super();
         rozamiento = 5f;
         tipo = TipoVehiculo.RALLY;

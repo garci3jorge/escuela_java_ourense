@@ -5,8 +5,13 @@
  */
 package pkg01_introjava;
 
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.crypto.dsig.TransformException;
 import pkg02_intro_java_poo.vehiculos.Coche;
 import pkg02_intro_java_poo.vehiculos.FabricaCoches;
+import pkg05_intro_java_excepciones.UsoNormalExcepciones;
 
 /**
  *
@@ -15,15 +20,58 @@ import pkg02_intro_java_poo.vehiculos.FabricaCoches;
 public class Main {
 
     public static void main(String[] args) {
+                    
+            
+        
+        try {
+            System.out.println("Hola chavules");
+            //codigo con errores
+            UsoNormalExcepciones unObj = new UsoNormalExcepciones();
+            //unObj.metodoPeligroso();
+            //mas codigo con erroresç
+            //Object objnull = null;
+            //System.out.println("Fallara " + objnull.toString());
+            
+            throw  new TransformException("nueva excepcion");
+
+        } catch (RuntimeException ex) {
+            System.out.println("Cualquier tipo de RuntimeException: ");
+            Logger.getLogger("<< LOG >>  :  " + Main.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (Exception ex) {
+            //captura cualquier Excepcion, cuyo tipo sea el indicado en el 
+            //catch o cualquiera de sus clases hijas
+            System.out.println("Cualquier tipo de Excepcion: ");
+            Logger.getLogger("<< LOG >>  :  " + Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public static void mainConTryCatchPorSeparado(String[] args) {
         //distintas llamadas a los metodos
         //mostrarTiposDatos();
         //condiciones();
         //ordenarArray();
-       
+        System.out.println("hola a todos");
+        try {
+            UsoNormalExcepciones unObj = new UsoNormalExcepciones();
+            unObj.metodoPeligroso();
+
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("Excepcion " + ex.getMessage());
+
+            System.out.println("\nPila de llamadas "
+                    + Arrays.toString(ex.getStackTrace()));
+        }
+        try {
+
+        } catch (Exception e) {
+        }
+
     }
 
     public static void mostrarTiposDatos() {
-        System.out.println("hola mundo");
+        System.out.println("hola mundo de aqui");
         String algo = "algo";
         System.out.println(algo);
         //array
@@ -93,14 +141,15 @@ public class Main {
         //XOR (^)
     }
 
-    /**Esto es un ejecicio de ordenar un array*/
-    public static int [] ordenarArray(int[] arrayNumerico) {
+    /**
+     * Esto es un ejecicio de ordenar un array
+     */
+    public static int[] ordenarArray(int[] arrayNumerico) {
         //declarar array enteros
         //Programar todo lo que haga falta para ordenarlo
-        
+
         //para poder hacer prubeas necesitas comentar este array y el return de abajo
         //int[] arrayNumerico = {4, 2, 6, 1, 3, 5, 3};
-        
         int comodin;
         System.out.println("Descendente");
         for (int i = 0; i < arrayNumerico.length; i++) {
@@ -115,7 +164,6 @@ public class Main {
 
             }
         }
-        
 
         for (int j = 0; j < arrayNumerico.length; j++) {
             System.out.println(arrayNumerico[j]);
@@ -140,8 +188,7 @@ public class Main {
 //            System.out.println(arrayDesordenado[j]);
 //        }
         return arrayNumerico;
-        
+
     }
 
-    
 }
