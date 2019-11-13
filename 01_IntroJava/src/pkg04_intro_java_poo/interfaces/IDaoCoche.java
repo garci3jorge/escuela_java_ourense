@@ -13,7 +13,7 @@ import pkg02_intro_java_poo.vehiculos.FabricaCoches;
  * @author PC
  */
 public interface IDaoCoche extends IGenericDao<Coche>{
-   // public abstract void crear(String marca) ;
+    public abstract void crear() ;
 
    // public Coche obtenerPorIndice(int index) ;
 

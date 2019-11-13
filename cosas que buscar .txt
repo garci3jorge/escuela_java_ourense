@@ -5,3 +5,6 @@ paso por referencia en java
 Listas, Mapas, Conjuntos
 Excepciones Try Catch
 patrones de diselo
+interfaz comparable, mirar algo de esto, en principio no se va a ver en el curso
+hilos(threads)
+algo relacionado con los hilos en java son los servlets MIRARLOS en pildoras informaticas 246

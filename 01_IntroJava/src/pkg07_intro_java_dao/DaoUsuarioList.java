@@ -45,4 +45,16 @@ public class DaoUsuarioList implements IDaoUsuario {
         usuarioAmodificar.setNombre(usuarioConDatos.getNombre());
     }
 
+    
+
+    @Override
+    public void eliminar(Usuario objConDatosNuevos) {
+        
+    }
+
+    @Override
+    public void eliminar() {
+        
+    }
+
 }

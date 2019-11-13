@@ -16,5 +16,8 @@ public interface IGenericDao<T> {
     T obtenerPorIndice(int index);
     
     void modificar (int index,T obConDatosNuevos)throws Exception;
+    
+    void eliminar();
+    void eliminar(T objConDatosNuevos);
 
 }

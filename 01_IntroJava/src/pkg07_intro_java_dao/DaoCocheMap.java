@@ -49,4 +49,24 @@ public class DaoCocheMap implements IDaoCoche{
         return mapaCocheString.get(marca);
     }
 
+    @Override
+    public void modificar(int index, Coche obConDatosNuevos) throws Exception {
+        
+    }
+
+    @Override
+    public void eliminar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Coche objConDatosNuevos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void crear( ) {
+        
+    }
+
 }

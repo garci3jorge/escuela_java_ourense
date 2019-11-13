@@ -27,3 +27,11 @@ Conociminetos dados por el profesor
 	-Patrones de diseño(POO, singleton, DAO, MVC, Factory, )
 
 2- Git (control de versiones)
+
+3- Hilos
+	-paralelismo
+	-concurrencia(comparticion de recursos)
+
+
+
+

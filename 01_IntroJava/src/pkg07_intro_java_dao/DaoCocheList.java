@@ -15,23 +15,26 @@ import pkg04_intro_java_poo.interfaces.IDaoCoche;
  *
  * @author PC
  */
-public class DaoCocheList implements IDaoCoche{
+public class DaoCocheList implements IDaoCoche {
+
     private List<Coche> listaCoche;
-    
-    public DaoCocheList(){
-        listaCoche= new ArrayList<>();
+
+    public DaoCocheList() {
+        listaCoche = new ArrayList<>();
     }
-    
+
     @Override
-    public void crear(Coche nuevoCoche){
+    public void crear(Coche nuevoCoche) {
         listaCoche.add(nuevoCoche);
     }
+
     @Override
-    public Coche obtenerPorIndice(int index){
+    public Coche obtenerPorIndice(int index) {
         return listaCoche.get(index);
     }
+
     @Override
-    public Coche obtenerPorMarca(String marca){
+    public Coche obtenerPorMarca(String marca) {
         for (Coche coche : listaCoche) {
             if (coche.getMarca().equals(marca)) {
                 return coche;
@@ -39,5 +42,27 @@ public class DaoCocheList implements IDaoCoche{
         }
         return null;
     }
+
+    @Override
+    public void modificar(int index, Coche cocheConDatos) throws Exception {
+        Coche cocheAmodificar = listaCoche.get(index);
+        cocheAmodificar.setMarca(cocheConDatos.getMarca());
+
+    }
+
+    @Override
+    public void eliminar() {
+    }
+
+    @Override
+    public void eliminar(Coche objConDatosNuevos) {
+    }
+
+    @Override
+    public void crear() {
+    }
+
+   
     
+
 }
