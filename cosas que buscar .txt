@@ -8,3 +8,4 @@ patrones de diselo
 interfaz comparable, mirar algo de esto, en principio no se va a ver en el curso
 hilos(threads) esto esta en pildoras informaticas a partir del video 168
 algo relacionado con los hilos en java son los servlets MIRARLOS en pildoras informaticas 246
+SOLID

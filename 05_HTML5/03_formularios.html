@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="imagenes/luffy.png" alt="Esto deberia ser una imagen" />
+    <nav>
+        <ul>
+            <li>
+                <a href="01_estructura_html5.html">Menu Principal</a>
+                <a href="02_ejemplo_css3.html">Ejemplos CSS</a>
+                <a href="03_formularios.html">Formulario</a>
+                <a href="04_ejemplos_js.html">Ejemplos JS</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Formularios html5</h1>
+
+    <form id="nuevoFormulario" name="nuevoFormulario" action="#" method="GET">
+        <input id="nombre" name="nombre" type="text" required/>
+        <input value="valor por defecto">
+        <input placeholder="testo explicativo de fondo">
+        <input size="100">
+        <div>
+            <input type="reset" value="Borrar">
+            <input type="submit" value="Enviar" >
+            <input type="button" value="Rellenar" onclick="document.forms.nuevoFormulario.nombre.value='FulanoDeTal'">
+        </div>
+    </form>
+
+</body>
+
+</html>

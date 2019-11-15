@@ -31,6 +31,12 @@ Conociminetos dados por el profesor
 3- Hilos
 	-paralelismo
 	-concurrencia(comparticion de recursos)
+4-HTML-XML-CSS-JavaScript
+5-Bootstrap
+
+5-Cosas sueltas
+	-algo sobre solid(algo sobre las buenas practicas o metodos de programar)
+	
 
 
 
