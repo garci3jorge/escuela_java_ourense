@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* selector {propiedad_1=...; propiedad_2=...;}*/
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+
+        section article section {
+            background-color: maroon;
+        }
+
+        /*selectores fin*/
+        /*Clases */
+        /*para añadir varias clases a  un elemento se pone un espacio entre los distintos nombres de las clases*/
+        .azul-chillon {
+            background-color: rgb(46, 253, 236);
+
+        }
+
+        /*clases fin*/
+        /*Selector de id(#)*/
+        #solid-name {
+            font-size: 15px;
+        }
+
+        /*Selector de id(#) fin*/
+        /**/
+        a:hover {
+            background-color: red;
+        }
+    </style>
+    <!--para enlazar este fichero html y otro con css es necesario lo siguiente
+    <link rel="stylesheet" href="aqui va la direccion donde esta guardado>-->
+</head>
+
+<body>
+    <header>
+        <img src="imagenes/luffy.png" alt="Esto deberia ser una imagen" />
+        <nav>
+            <ul>
+                <li>
+                    <a href="01_estructura_html5.html">Menu Principal</a>
+                    <a href="10_jQueryDOM.html">Ejemplos CSS</a>
+                    <a href="03_formularios.html">Formulario</a>
+                    <a href="04_ejemplos_js.html">Ejemplos JS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <!-- Los encabezados no se deben usar para estilo, si no por la importancia del texto a mostrar-->
+        <h2>Encabezado h2</h2>
+        <h3>Encabezado h3</h3>
+        <article>
+            <h4 id="solid-name" class="azul-chillon">Aqui iria un articulo en h4 </h4>
+            con el texto que bla bla...
+            <section>una parte del articulo</section>
+            <section>otra parte del articulo</section>
+        </article>
+    </section>
+    <script src="jsjQuery/jquery-3.4.1.js"></script>
+    <script src="jsjQuery/10_jQueryDOM.js"></script>
+</body>
+
+</html>
+
+

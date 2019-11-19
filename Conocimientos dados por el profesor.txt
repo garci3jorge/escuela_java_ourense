@@ -32,10 +32,32 @@ Conociminetos dados por el profesor
 	-paralelismo
 	-concurrencia(comparticion de recursos)
 4-HTML-XML-CSS-JavaScript
+	-Eventos en javaScript
+		-funcion callBack (funcion recursiva)
+		-eventos
 5-Bootstrap
+ir a la pagina de bootstrap y coger el codigo para poder implementar las clases de bootstrap(mirar los html del profe y ver los enlaces ariba de todo CREO)
 
-5-Cosas sueltas
+Este seria el codigo que se pone en el head del html
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+6-jQuery
+	-es la libreria mas util de java script
+	-se invento principalmente par ala gestion de DOM
+	-tambien gestiona eventos
+	-ajax
+	-animaciones
+	-utilidades
+
+
+-----Cosas sueltas
 	-algo sobre solid(algo sobre las buenas practicas o metodos de programar)
+
 	
 
 

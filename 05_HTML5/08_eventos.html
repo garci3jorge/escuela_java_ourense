@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="componente_evento">
+        <!--boton 1-->
+        <label for="">Evento con listener</label>
+        <input id="input_listo" size=100 />
+        <input id="btn_listo" type="button" />
+    </div>
+    <div id="componente_evento2">
+        <!--boton 2-->
+        <label for="">Evento con listener 2</label>
+        <input id="input_listo2" size=100 />
+        <input id="btn_listo2" type="button" />
+    </div>
+    <div id="info_evento"></div>
+    <div id="info_evento2"></div>
+
+
+
+    <br />
+    <script>
+
+
+        var gestorEv_Listo = new GestorEventos(inputId, btnId, divId);
+        var gestorEv_Otro = new GestorEventos(inputId, btnId, divId);
+
+
+        //boton 1
+        let input_listo = document.getElementById("input_listo");
+        let btn_listo = document.getElementById("btn_listo");
+        btn_listo.value = "pulsa listillo";
+        btn_listo.addEventListener("click", funCllBkAlPulsar);
+        btn_listo.addEventListener("click", funCllBkAlPulsar_Dos);
+        //boton 2
+        let input_listo2 = document.getElementById("input_listo2");
+        let btn_listo2 = document.getElementById("btn_listo2");
+        btn_listo2.value = "pulsa listillo si quieres";
+        btn_listo2.addEventListener("click", funCllBkAlPulsar);
+        btn_listo2.addEventListener("click", funCllBkAlPulsar_Dos);
+
+        function funCllBkAlPulsar() {
+            input_listo.value = "Typo evento: " + event.type;
+            let info_evento = document.getElementById("info_evento");
+            event.currentTarget.value = "Puedes repetir";
+            info_evento.innerHTML += "event.currentTarget.id = " + event.currentTarget.id;
+            info_evento.className = "div-marco";
+            info_evento2.innerHTML += "event.currentTarget.id = " + event.currentTarget.id;
+            info_evento2.className = "div-marco";
+            //con esta linea de abajo hacemos que solo se pueda pulsar el boton una vez
+            btn_listo.removeEventListener("click", funCllBkAlPulsar);
+
+        }
+        function funCllBkAlPulsar_Dos() {
+            document.getElementsByTagName("body")[0].className = "fondo-body";
+        }
+
+        function gestorEventos(input, boton, divinfo) {
+            this.input = input;
+            this.boton = boton;
+            this.divinfo = divinfo;
+
+            this.funCllBkAlPulsar = (event) => {
+                this.input = document.getElementById(inputId);
+                this.boton = document.getElementById(btnId);
+                this.divInfo = document.getElementById(divId);
+                this.boton.addEventListener("click",this.funCllBkAlPulsar.bind(this));
+                this.boton.addEventListener("click",funCllBkAlPulsar2);
+            }
+        }
+        class GestorEventosES6 {
+            constructor(inputId, btnId, divId) {
+                this.input = document.getElementById(inputId);
+                this.boton = document.getElementById(btnId);
+                this.divInfo = document.getElementById(divId);
+                this.boton.addEventListener("click",this.funCllBkAlPulsar.bind(this));
+                this.boton.addEventListener("click",funCllBkAlPulsar2);
+            }
+            funCllBkAlPulsar(event){
+                this.input.value= "tipo evento: "+ evento.type;
+            }
+            funCallbkOnClick_2= (event)=>{
+                this.input.style="background-color: lightblue";
+            }
+        }
+
+    </script>
+    <style>
+        .div-marco {
+            border: blue solid;
+            background-color: chartreuse;
+        }
+
+        .fondo-body {
+            background-color: crimson;
+        }
+    </style>
+
+</body>
+
+</html>
