@@ -53,7 +53,9 @@ Este seria el codigo que se pone en el head del html
 	-ajax
 	-animaciones
 	-utilidades
+	-anclages
 
+7- Arquitectura 3 capas(cliente(front), servidor(backed), BBDD(backed))
 
 -----Cosas sueltas
 	-algo sobre solid(algo sobre las buenas practicas o metodos de programar)
