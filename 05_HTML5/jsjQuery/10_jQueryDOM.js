@@ -19,10 +19,7 @@ jQuery(document).ready(function () {
     });
     $(".enlace-articulo").each(function (index) {
         $(this).click(function () {
-
-
             $("#articulo_29juR_"+index).toggle(3000);
-
         });
 
     });

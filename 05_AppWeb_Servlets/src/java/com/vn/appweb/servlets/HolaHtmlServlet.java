@@ -26,8 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HolaHtmlServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest peticionHttp,
-            HttpServletResponse respuestaHttp) throws IOException {
+    protected void doGet(HttpServletRequest peticionHttp,HttpServletResponse respuestaHttp) throws IOException {
         //definimos el tipo de contenido segun los tipos MINE
         //formatos conocidos de ficheros para emails
         respuestaHttp.setContentType("text/html;charset=UTF-8");
