@@ -57,6 +57,32 @@ Este seria el codigo que se pone en el head del html
 
 7- Arquitectura 3 capas(cliente(front), servidor(backed), BBDD(backed))
 
+
+8-MVC (modelo vista controlador) no es lo mismo que el punto 7
+	-Modelo el DAO es el que comunica la persistencia y la logica 
+	- Modelo tiene persistencia
+				-ficheros
+				-BBDD
+				-RAM
+				-Colecciones
+	- Modelo tambien tiene logica de negocio
+				-valdaciones
+				-sistemas de permisos de roles
+				-calculos
+				-srrvicios
+	- vista tiene
+		-representacion de datos
+		-navegador mediante html css js
+		-app movil activities
+		-app escritorio ventanas
+		-consola de comandos
+	-controlador
+		-
+
+
+8- JSP 
+	-las jsp son lo mismo que un servlet
+
 -----Cosas sueltas
 	-algo sobre solid(algo sobre las buenas practicas o metodos de programar)
 
