@@ -16,6 +16,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ServicioUsuarios miMetodo= new ServicioUsuarios();
+        miMetodo.eliminar();
     }
     
 }

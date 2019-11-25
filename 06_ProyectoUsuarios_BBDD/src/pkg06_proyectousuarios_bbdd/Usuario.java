@@ -10,20 +10,19 @@ package pkg06_proyectousuarios_bbdd;
  * @author PC
  */
 public class Usuario {
-    private int id;
-    private  String email;
-    private String password;
-    private String nombre;
-    private int edad;
+    int id;
+    String email;
+    String password;
+    String nombre;
+    int age;
 
-    public Usuario(int id, String email, String password, String nombre, int edad) {
-        this.id = id;
+     public Usuario(String email, String password, String nombre, int age) {
         this.email = email;
         this.password = password;
         this.nombre = nombre;
-        this.edad = edad;
+        this.age = age;
     }
-
+   
     public int getId() {
         return id;
     }
@@ -56,13 +55,13 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getAge() {
+        return age;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setAge(int age) {
+        this.age = age;
     }
-    
-    
+
+  
 }

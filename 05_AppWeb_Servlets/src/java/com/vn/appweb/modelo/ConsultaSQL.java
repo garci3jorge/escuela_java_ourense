@@ -38,7 +38,7 @@ public class ConsultaSQL {
         try (Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/db_prueba", "root", "1234")) {
 
             String sqlQuery = "SELECT * from PERSONA where upper(trim(nombre)) like ? escape '!' ";
-            //sentencia preparada para eitar sql injection
+            //sentencia preparada para evitar sql injection
             PreparedStatement sentenciaSQL = con.prepareStatement(sqlQuery);
             busq = busq.toUpperCase().trim();
             busq = busq.replace("!", "!!");
