@@ -3,129 +3,120 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg06_proyectousuarios_bbdd;
+package com.appusuarios.modelo;
 
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
- * @author PC
+ * @author pc
  */
 public class ServicioUsuarios {
 
-    public void insertar(int id, String email, String password, String nombre, int age) {
-        try {
-            Connection miConecxion = DriverManager.getConnection("jdbc:derby://localhost:1527/Usuario", "root", "1234");
+    UsuariosDAO daoUsu;
 
-            PreparedStatement sentenciaSQL = miConecxion.prepareStatement("INSERT INTO USUARIO( EMAIL, PASSWORD, NOMBRE, AGE) VALUES(?, ?, ?,?)");
-
-            sentenciaSQL.setString(1, email);
-            sentenciaSQL.setString(2, password);
-            sentenciaSQL.setString(3, nombre);
-            sentenciaSQL.setInt(4, age);
-            sentenciaSQL.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.print("<p style='color:red'>No se ha cargado DerbyDB</p>");
-        }
+    public ServicioUsuarios() {
+        daoUsu = new UsuariosDAO();
     }
+    /** Método que comprueba primero si los campos son válidos de la siguiente
+     * manera: Primero que ningún valor es nulo, segundo que no haya 
+     * campos vacíos. La edad debe ser un número y por último que el 
+     * email y el nombre sean correctos mediante expresiones regulares.
+     * 
+     * @param email
+     * @param password
+     * @param nombre
+     * @param edad      Debe ser mayor de 12
+     * @return          El objeto Usuario ya creado o nulo si está mal
+     */
+    public Usuario crearUsuarioValido(String email, String password, String nombre, String edad) {
 
-    public void modificar(String email, String password, String nombre, int age) {
-        try {
-            Connection miConecxion = DriverManager.getConnection("jdbc:derby://localhost:1527/Usuario", "root", "1234");
-
-            PreparedStatement sentenciaSQL = miConecxion.prepareStatement("UPDATE USUARIO SET EMAIL=?, PASSWORD=?, NOMBRE=?, AGE=? WHERE EMAIL=?");
-
-            sentenciaSQL.setString(1, email);
-            sentenciaSQL.setString(3, password);
-            sentenciaSQL.setString(2, nombre);
-            sentenciaSQL.setInt(4, age);
-            sentenciaSQL.setString(5, "paco@paco.como");
-            sentenciaSQL.executeUpdate();
-            System.out.println("DATOS MODIFICADOS CORRECTAMENTE");
-
-        } catch (Exception e) {
-            System.out.print("<p style='color:red'>No se ha añadido modificado al usuario</p>");
-        }
-    }
-    
-    public void eliminar() {
-        try {
-            Connection miConecxion = DriverManager.getConnection("jdbc:derby://localhost:1527/Usuario", "root", "1234");
-
-            PreparedStatement sentenciaSQL = miConecxion.prepareStatement("DELETE FROM USUARIO WHERE EMAIL=?");
-
-            
-            sentenciaSQL.setString(1, "paco@paco.como");
-            sentenciaSQL.executeUpdate();
-            System.out.println("Usuario eliminado correctamente");
-
-        } catch (Exception e) {
-            System.out.print("<p style='color:red'>No se ha podido eliminar al usuario</p>");
-        }
-    }
-
-    public List<Usuario> leerUnoPorEmail(String busq) {
-        ArrayList<Usuario> datos = new ArrayList<>();
-        busq = busq == null ? "" : busq;
-        try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
-            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Usuario", "root", "1234");
-
-            String sqlQuery = "SELECT EMAIL FROM USUARIO WHERE upper(trim(EMAIL)) like ? escape '!'";
-            PreparedStatement sentenciaSQL = con.prepareStatement(sqlQuery);
-            busq = busq.toUpperCase().trim();
-            busq = busq.replace("!", "!!");
-            busq = busq.replace("%", "!%");
-            busq = busq.replace("_", "!_");
-            busq = busq.replace("[", "![");
-            sentenciaSQL.setString(1, "%" + busq.toUpperCase().trim() + "%");// sustituir el primer ? por el '(contenido del nombre)'
-            ResultSet resultado = sentenciaSQL.executeQuery();
-            while (resultado.next()) {
-
-                String email = resultado.getString("email");
-                Usuario miUsuario = new Usuario(email, sqlQuery, email, 0);
-                miUsuario.setEmail(email);
-                datos.add(miUsuario);
+        if (email != null
+                && password != null
+                && nombre != null
+                && edad != null) 
+        {
+            if (email.length() >= 3
+                    && nombre.length() > 1
+                    && password.length() >= 4
+                    && !"".equals(edad)) 
+            {
+                try {
+                    int iEdad = Integer.parseInt(edad);
+                    if (iEdad >= 12) {
+                        if (validarEmailNombre(email, nombre)) {                            
+                            Usuario usuario = new Usuario(-1, email, password, nombre, iEdad);
+                            return usuario;
+                        } else {
+                            System.out.println("El nombre o el email no cumplen RegExp: " 
+                                    + nombre + ", " + password);
+                        }
+                    } else {
+                        System.out.println("La edad es menor de 12: " 
+                                + edad);
+                    }
+                } catch (Exception e) {
+                    System.out.println("La edad no se puede parsear a int: " + edad);
+                }
+            } else {
+                System.out.println("Hay un campo que no cumple la longitud");
             }
-            return datos;
-
-        } catch (Exception e) {
-            System.out.print("<p style='color:red'>No se ha devuelto el usuario por email</p>");
+        } else {
+            System.out.println("No admite NULOS");
         }
         return null;
     }
 
-    public List<Usuario> leerUnoPorID(int busqueda) {
-        ArrayList<Usuario> datos2 = new ArrayList<>();
+    boolean validarEmailNombre(String email, String nombre) {
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.find()) {
+            regex = "^[A-Z][a-z]+ ?[A-Za-z]*$";
+            pattern = Pattern.compile(regex);
+            matcher = pattern.matcher(nombre);
 
-        try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
-            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Usuario", "root", "1234");
-
-            String sqlQuery = "SELECT ID FROM USUARIO WHERE ID = ? escape '!'";
-            PreparedStatement sentenciaSQL = con.prepareStatement(sqlQuery);
-
-            sentenciaSQL.setInt(1, busqueda);// sustituir el primer ? por el '(contenido del nombre)'
-            ResultSet resultado = sentenciaSQL.executeQuery();
-            while (resultado.next()) {
-
-                int id = resultado.getInt(0);
-                Usuario miUsuario2 = new Usuario(sqlQuery, sqlQuery, sqlQuery, id);
-
-                miUsuario2.setId(id);
-                datos2.add(miUsuario2);
+            if (matcher.find()) {
+                return true;
             }
-            return datos2;
+        }
+        return false;
+    }
 
-        } catch (Exception e) {
-            System.out.print("<p style='color:red'>No se ha devuelto el usuario por id</p>");
+public Usuario crear(String email, String password, String nombre, String edad) {
+        Usuario nuevoUsu = crearUsuarioValido(email, password, nombre, edad);
+        if (nuevoUsu != null) {
+            nuevoUsu = daoUsu.crear(nuevoUsu);
+            return nuevoUsu;
         }
         return null;
     }
 
+    public Usuario leerUno(int id) {
+        return daoUsu.obtenerPorId(id);
+    }
+
+    public Usuario leerUno(String email) {
+        return daoUsu.obtenerPorEmail(email);
+    }
+
+    public Usuario modificar(int id, String email, String password, String nombre, String edad) {
+
+        Usuario usuModif = crearUsuarioValido(email, password, nombre, edad);
+        if (usuModif != null) {
+            usuModif.setId(id);
+            daoUsu.modificar(usuModif);
+            return usuModif;
+        }
+        return null;
+    }
+
+    public boolean eliminar(int id) {
+        return daoUsu.eliminar(id);
+    }
+    public ArrayList<Usuario> leerTodos() {
+        return daoUsu.obtenerTodos();
+    }
 }

@@ -3,26 +3,66 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg06_proyectousuarios_bbdd;
+package com.appusuarios.modelo;
 
 /**
  *
- * @author PC
+ * @author pc
  */
 public class Usuario {
-    int id;
-    String email;
-    String password;
-    String nombre;
-    int age;
+    
+    private int id;
+    private String email;
+    private String password;
+    private String nombre;
+    private int edad;
 
-     public Usuario(String email, String password, String nombre, int age) {
+    public Usuario(int id, String email, String password, String nombre, int edad) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.nombre = nombre;
-        this.age = age;
+        this.edad = edad;
     }
-   
+
+
+
+    /**
+     * Get the value of edad
+     *
+     * @return the value of edad
+     */
+    public int getEdad() {
+        return edad;
+    }
+
+    /**
+     * Set the value of edad
+     *
+     * @param edad new value of edad
+     */
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    /**
+     * Get the value of nombre
+     *
+     * @return the value of nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Set the value of nombre
+     *
+     * @param nombre new value of nombre
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getId() {
         return id;
     }
@@ -47,21 +87,4 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-  
 }

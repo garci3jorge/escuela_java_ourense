@@ -3,13 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg06_proyectousuarios_bbdd;
+package com.appusuarios.modelo;
+
+import java.util.ArrayList;
 
 /**
  *
- * @author PC
+ * @author pc
  */
-public interface IGenericDAO {
+public interface IGenericDao<T> {
     
+    public abstract T crear(T  objetoNuevo);
     
+    T obtenerPorId(int id);
+    
+    ArrayList<T> obtenerTodos();
+    
+    T modificar(T objConDatosNuevo);
+    
+    boolean eliminar(int id);
 }
