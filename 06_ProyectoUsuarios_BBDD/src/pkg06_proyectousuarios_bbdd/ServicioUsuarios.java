@@ -26,7 +26,7 @@ public class ServicioUsuarios {
 
     }
 
-    void setChivatoListener(ChivatoServicios chivato) {
+   public void setChivatoListener(ChivatoServicios chivato) {
         this.chivato = chivato;
     }
 

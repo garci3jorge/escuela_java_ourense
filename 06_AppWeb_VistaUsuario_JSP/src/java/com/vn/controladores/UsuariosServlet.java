@@ -6,11 +6,14 @@
 package com.vn.controladores;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import pkg06_proyectousuarios_bbdd.ServicioUsuarios;
 import pkg06_proyectousuarios_bbdd.Usuario;
 
@@ -31,24 +34,29 @@ public class UsuariosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String nombre = request.getParameter("nombre");
         String edad = request.getParameter("edad");
-        
+
         ServicioUsuarios srvUsu = new ServicioUsuarios();
-        
+        srvUsu.setChivatoListener((String mensaje) -> {
+            request.getSession().setAttribute("mensajeError", "Error al crear "+ mensaje);
+            
+            
+        });
+
         if (request.getMethod() == "POST") {
             Usuario usuario = srvUsu.crear(email, password, nombre, edad);
             if (usuario != null && usuario.getId() >= 0) {
                 request.getRequestDispatcher("registrado.jsp").forward(request, response);
             }else{
-                response.getWriter().print("error al crear");
+                request.getRequestDispatcher("registrarse.jsp").forward(request, response);
             }
-            
+
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
