@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.appusuarios.modelo;
+package pkg06_proyectousuarios_bbdd;
 
 /**
  *
@@ -16,7 +16,7 @@ public class Usuario {
     private String password;
     private String nombre;
     private int edad;
-
+    
     public Usuario(int id, String email, String password, String nombre, int edad) {
         this.id = id;
         this.email = email;
@@ -24,8 +24,19 @@ public class Usuario {
         this.nombre = nombre;
         this.edad = edad;
     }
-
-
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj)) {
+            return true;
+        } else {
+            if (obj == null) 
+                return false;            
+                Usuario usu = (Usuario) obj;
+                return usu.getId() == this.getId() && (usu.getEmail() == null ? this.getEmail() == null : usu.getEmail().equals(this.getEmail()));
+        }
+        
+    }
 
     /**
      * Get the value of edad
@@ -62,29 +73,29 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public int getId() {
         return id;
     }
-
+    
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getEmail() {
         return email;
     }
-
+    
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public String getPassword() {
         return password;
     }
-
+    
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
 }

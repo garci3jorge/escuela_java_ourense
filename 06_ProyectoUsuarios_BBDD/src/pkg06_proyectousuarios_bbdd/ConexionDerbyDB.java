@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.appusuarios.modelo;
+package pkg06_proyectousuarios_bbdd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,34 +16,28 @@ import java.util.logging.Logger;
  * @author pc
  */
 public class ConexionDerbyDB {
-    
-    public static final  String URL_CONEXION = "jdbc:derby://localhost:1527/db_usuarios";
-    public static final  String USUARIO_DB = "root";
-    public static final  String PASSWORD_DB = "1234";
+
+    public static final String URL_CONEXION = "jdbc:derby://localhost:1527/db_usuarios";
+    public static final String USUARIO_DB = "root";
+    public static final String PASSWORD_DB = "1234";
     private static boolean driversCargados = false;
-    
-    private  static void cargarDrivers() {
-        try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
-        } catch (Exception ex) {
-            Logger.getLogger(ConexionDerbyDB.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No se ha cargado DerbyDB");
-        }
+
+    private static void cargarDrivers() throws ClassNotFoundException, SQLException {
+
+        Class.forName("org.apache.derby.jdbc.ClientDriver");
+        DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
+
     }
-    public static Connection obtenerConexion() {
-        if (! driversCargados) {
+
+    public static Connection obtenerConexion() throws ClassNotFoundException, SQLException {
+        if (!driversCargados) {
             cargarDrivers();
             driversCargados = true;
         }
-        try {
-            return DriverManager.getConnection(
-                    URL_CONEXION,
-                    USUARIO_DB, PASSWORD_DB);
-        } catch (SQLException ex) {
-            Logger.getLogger(ConexionDerbyDB.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No se ha podido conectar");
-        }
-        return null;
+
+        return DriverManager.getConnection(
+                URL_CONEXION,
+                USUARIO_DB, PASSWORD_DB);
+
     }
 }
