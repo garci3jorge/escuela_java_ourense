@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg06_proyectousuarios_bbdd;
+package com.vn.appusuarios.modelo.logica;
 
 /**
  *

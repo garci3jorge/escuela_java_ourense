@@ -1,3 +1,5 @@
+package com.vn.appusuarios.test;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,8 +9,8 @@
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import pkg06_proyectousuarios_bbdd.ServicioUsuarios;
-import pkg06_proyectousuarios_bbdd.Usuario;
+import com.vn.appusuarios.modelo.logica.ServicioUsuarios;
+import com.vn.appusuarios.modelo.Usuario;
 
 /**
  *

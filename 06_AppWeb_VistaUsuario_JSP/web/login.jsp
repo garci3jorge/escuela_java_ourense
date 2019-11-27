@@ -5,7 +5,7 @@
 --%>
 
 <html>
-    <%= head() %>
+    <%=head() %>
     <body>
 	
         <h1>Formulario JSP de Login</h1> 

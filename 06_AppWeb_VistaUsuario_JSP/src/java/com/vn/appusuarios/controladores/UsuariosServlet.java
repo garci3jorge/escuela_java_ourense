@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vn.controladores;
+package com.vn.appusuarios.controladores;
 
 import java.io.IOException;
 
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import pkg06_proyectousuarios_bbdd.ServicioUsuarios;
-import pkg06_proyectousuarios_bbdd.Usuario;
+import com.vn.appusuarios.modelo.logica.ServicioUsuarios;
+import com.vn.appusuarios.modelo.Usuario;
 
 /**
  *
@@ -50,6 +50,7 @@ public class UsuariosServlet extends HttpServlet {
         if (request.getMethod() == "POST") {
             Usuario usuario = srvUsu.crear(email, password, nombre, edad);
             if (usuario != null && usuario.getId() >= 0) {
+                request.getSession().setAttribute("emailUsuario",  email);
                 request.getRequestDispatcher("registrado.jsp").forward(request, response);
             }else{
                 request.getRequestDispatcher("registrarse.jsp").forward(request, response);
