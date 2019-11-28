@@ -1,5 +1,5 @@
 {
     "nombre": "fulanito de tal",
-    "edad":"30",
+    "edad":30,
     "fibonacci":[1,1,2,3,5]
 }
