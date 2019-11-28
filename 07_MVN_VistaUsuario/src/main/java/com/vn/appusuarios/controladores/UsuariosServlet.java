@@ -30,9 +30,9 @@ public class UsuariosServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		
+
 		this.srvUsu = new ServicioUsuarios();
-		
+
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class UsuariosServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String nombre = request.getParameter("nombre");
 		String edad = request.getParameter("edad");
-		
-		//en el objeto petitcion le pasamos nuestro (este servlet) servicio  de usuario
+
+		// en el objeto petitcion le pasamos nuestro (este servlet) servicio de usuario
 		request.setAttribute("servicioUsu", this.srvUsu);
 
 		srvUsu.setChivatoListener((String mensaje) -> {
@@ -70,6 +70,10 @@ public class UsuariosServlet extends HttpServlet {
 				request.getRequestDispatcher("registrarse.jsp").forward(request, response);
 			}
 
+		} else if (request.getMethod() == "GET") {
+			Usuario usuario = srvUsu.leerUno(email);
+			request.getSession().setAttribute("usuario", usuario);
+			request.getRequestDispatcher("header.jsp").forward(request, response);
 		}
 
 	}
