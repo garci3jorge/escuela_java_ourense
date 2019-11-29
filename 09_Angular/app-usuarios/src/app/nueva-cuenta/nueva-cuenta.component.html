@@ -1,0 +1,24 @@
+<div class="div-marco">
+    <p>nueva-cuenta works!</p>
+    <h2>nueva cuenta</h2>
+    <table>
+        <tr>
+            <td>
+                iban:
+            </td>
+            <td>
+                <input [(ngModel)]="cuenta.iban" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                dni:
+            </td>
+            <td>
+                <input [(ngModel)]="cuenta.dni" />
+            </td>
+        </tr>
+    </table>
+    Cuenta : {{ cuenta.iban +" / "+ cuenta.dni }}
+    <input type="button" value="Crear cuenta" (click)="crearCuenta()" name="" id=""/>
+</div>
