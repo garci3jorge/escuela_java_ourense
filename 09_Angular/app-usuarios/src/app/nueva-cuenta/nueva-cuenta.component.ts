@@ -12,9 +12,9 @@ import { Observable } from 'rxjs';
 export class NuevaCuentaComponent implements OnInit {
 
   cuenta: CuentaBanc;
-  recibdo:boolean;
+  recibido:boolean;
 
-  //angular detecta que el componente necesita el servicio,
+  //angular detecta que el componente necesita el servicio, 
   //asi que le inyecta el unico que ha creado
   //como el @Autowire de srping, es la inyccion de dependencias
   constructor(private srvCuentasRest: CuentasRestService) { }
@@ -28,8 +28,8 @@ export class NuevaCuentaComponent implements OnInit {
     observador = this.srvCuentasRest.add(this.cuenta);
     observador.subscribe( (objNoSexual) =>{
       console.log("Datos: "+ objNoSexual["iban"]);
-      this.recibdo=true;
-    })
+      this.recibido=true;
+    });
     console.log(this.cuenta.toString());
   }
 

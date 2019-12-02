@@ -19,6 +19,8 @@
             </td>
         </tr>
     </table>
-    Cuenta : {{ cuenta.iban +" / "+ cuenta.dni }}
-    <input type="button" value="Crear cuenta" (click)="crearCuenta()" name="" id=""/>
+    Cuenta : {{ cuenta.iban + " / " + cuenta.dni }}
+    <input type="button" value="Crear cuenta" (click)="crearCuenta()"  />
+    <p *ngIf="recibido == true" style="color:green">algo ha recibido</p>
+    <p *ngIf="recibido == false" style="color: red">no ha recibido nada</p>
 </div>

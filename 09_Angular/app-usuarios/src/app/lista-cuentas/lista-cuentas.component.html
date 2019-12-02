@@ -1,0 +1,15 @@
+<h2>lista-cuentas works!</h2>
+<table class="tabla">
+    <thead>
+        <th>Id</th>
+        <th>Iban</th>
+        <th>Dni</th>
+    </thead>
+    <tr *ngFor="let cuenta of arrayCuentas">
+        <td>{{cuenta.id}}</td>
+        <td>{{cuenta.iban}}</td>
+        <td>{{cuenta.dni}}</td>
+        <td><input type="button" value="X" style="color: red;" (click)="eliminar(cuenta.id)" ></td>
+        <td><input type="button" value="Edit" style="color:blue;"></td>
+    </tr>
+</table>

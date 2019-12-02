@@ -16,6 +16,7 @@ export class CuentasRestService {
       'Content-Type': 'application/json'
     })
   }
+  alCambiar: any;
 
   constructor(private httpCli: HttpClient) { }
 
@@ -23,7 +24,21 @@ export class CuentasRestService {
   //creamos con el .post
 
   public add(nuevaCuenta: CuentaBanc): Observable<CuentaBanc> {
-     return this.httpCli.post<CuentaBanc>(this.urlApiRest, nuevaCuenta, this.httpOptions);
+    return this.httpCli.post<CuentaBanc>(this.urlApiRest, nuevaCuenta, this.httpOptions);
 
+  }
+  public traerTodos(): Observable<CuentaBanc[]> {
+    return this.httpCli.get<CuentaBanc[]>(this.urlApiRest);
+  }
+
+  public eliminar(id: Number) {
+    let urlPeticionDelete= `${this.urlApiRest}/${id}`;
+    console.log(urlPeticionDelete);
+
+
+    this.httpCli.delete(urlPeticionDelete, this.httpOptions).subscribe((datos) => {
+      this.alCambiar(datos);    
+      console.log(">>>>>>Eliminado>>>>>>>> " + id)
+    });
   }
 }
